@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shared Component</title>
+
+</head>
+<body>
+<!--<Contains header and footer which will be used>-->
+<header th:fragment="header">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+
+        <div class="conatiner">
+            <img src="https://images.blz-contentstack.com/v3/assets/blta7b34f1f894a2422/blt10f0d59f97d93946/5d8940702f5989598fc7de16/CDL_Logo.svg?auto=webp" class="navbar-brand " width="400px"   >
+        </div>
+        <button
+                type="button" class="navbar-toggler"
+                data-bs-target="#navbarNav"
+                data-bs-toggle="collapse"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle Navbar"
+                a
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto"></div>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Team</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Schedule</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Login</a></li>
+            </ul>
+        </div>
+
+
+    </nav>
+
+</header>
+
+
+
+</body>
+</html>

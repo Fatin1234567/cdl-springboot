@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../static/css/navbar.css" th:href="@{/css/navbar.css}">
+
+    <link rel="stylesheet" href="../static/css/home.css" th:href="@{/css/home.css}">
+
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+
+</head>
+<body>
+
+<!--        <This is the landing page >-->
+
+
+<header th:replace="commoncomponent :: header"></header>
+
+<main>
+    <div class=" a w-100 vh-100 d-flex justify-content-center
+     align-items-center" style="background-image:url('../static/img/index.jpg'); background-repeat: no-repeat, repeat; background-size: cover;" th:style="'background-image:url(' + @{/img/index.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+
+
+
+        <div class="content text-center">
+            <h1 class="text-white context">stay up to date with all the actions</h1>
+        </div>
+
+    </div>
+
+
+
+    <div class="container m-5" th:if="${!newsList.isEmpty()}">
+        <div class="row " data-masonry='{"percentPosition": true }'>
+            <div class="col-12 col-md-6 col-lg-3" th:each="news: ${newsList}">
+                <div class="card"  >
+                    <section th:if="${!news.imgPath.isEmpty()}"  >
+                        <img  class="card-img-top img-fluid"  src="https://www.dexerto.com/wp-content/uploads/2020/10/100-thieves-cdl.jpg" th:src="@{{image}(image=${news.imgPath})}">
+                    </section>
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${news.title}">Card title</h4>
+                        <p class="card-text" th:text="${news.body}">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">
+                            <small class="text-muted" th:text="'Last updated '+${#dates.format(news.date,'yyyy-MM-dd')}">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll',function(){
+            if(window.pageYOffset > 750){
+                nav.classList.add('bg-dark','shadow')
+            }else{
+                nav.classList.remove('bg-dark','shadow')
+            }
+        })
+    </script>
+</main>
+
+</body>
+</html>

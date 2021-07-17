@@ -1,0 +1,19 @@
+
+body {
+    font-family: europa, sans-serif;
+    background-color: #ececec;
+    font-weight: 500;
+
+
+}
+
+
+.context {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0;
+
+
+}
