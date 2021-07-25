@@ -1,24 +1,46 @@
-package fatin.kazi.cdl.model;
+package fatin.kazi.cdl.news;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 // models the news on the home page
+
+@Entity
+@Table(name ="news")
 public class News {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(
+            name = "id",
+            updatable = false
+    )
+    private Integer id;
 
 
     @NotNull
     @Size(min = 2,max = 14, message = "Title between 2 to 14")
+    @Column(
+           nullable = false
+    )
     private String title;
     @NotNull
-    @Size(min = 10,max = 50, message = "Description between 2 to 14")
+    @Size(min = 10,max = 300, message = "Description between 10 to 300")
+    @Column(
+            nullable = false
+    )
     private String body;
     @Future(message = "Date should from future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
+    @Column(
+            name = "img_path",
+            nullable = false
+    )
     private String imgPath;
 
 
@@ -26,6 +48,13 @@ public class News {
 
 
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

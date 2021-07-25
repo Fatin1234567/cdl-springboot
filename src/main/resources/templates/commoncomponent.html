@@ -29,9 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mx-auto"></div>
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="#" th:href="@{/}" class="nav-link text-white">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link text-white">Team</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white">Schedule</a></li>
+                <li class="nav-item"><a href="#" th:href="@{/Schedule/1}" class="nav-link text-white">Schedule</a></li>
                 <li class="nav-item"><a href="#" class="nav-link text-white">Login</a></li>
             </ul>
         </div>
@@ -40,6 +40,41 @@
     </nav>
 
 </header>
+
+<div  th:fragment="headerSchedule" class=" a w-100 vh-100 d-flex flex-column justify-content-center
+     align-items-center" style="background-image:url('../static/img/schedule.jpg'); background-repeat: no-repeat, repeat; background-size: cover;" th:style="'background-image:url(' + @{/img/schedule.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+
+
+
+    <div class="content text-center">
+        <h1 class="text-white title">MAJOR V</h1>
+        <h1 class="text-white context">Don't Miss Single Match</h1>
+    </div>
+
+
+
+
+</div>
+
+<div th:fragment="pagination" class="justify-content-center">
+
+        <nav >
+            <ul class="pagination pagination-sm justify-content-center" >
+                <li class="page-item"><a href="" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="" class="page-link">Day One - Thur</a></li>
+                <li class="page-item"><a href="" class="page-link">Day Two - Fri</a></li>
+                <li class="page-item"><a href="" class="page-link">Day Three - Sat</a></li>
+                <li class="page-item"><a href="" class="page-link">Day Four - Sun</a></li>
+
+                <li class="page-item" ><a href="" class="page-link">Next</a></li>
+
+
+            </ul>
+
+        </nav>
+
+
+</div>
 
 
 
