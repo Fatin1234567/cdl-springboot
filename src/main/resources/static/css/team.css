@@ -1,0 +1,41 @@
+
+.teamH{
+    font-weight: 500;
+    font-size: 50px;
+    margin: 0;
+    line-height: 1,3;
+    letter-spacing: .0001em;
+    color: black;
+
+
+
+}
+
+.teamHname{
+
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0;
+    line-height: 1,3;
+    letter-spacing: .0001em;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.playerName{
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1,3;
+    letter-spacing: .0001em;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.a{
+
+    height: 370px;
+}
+
