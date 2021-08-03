@@ -14,12 +14,21 @@ public class Team {
     private Integer id;
     private String teamName;
     private String logoPath;
+    private String color;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Player> playerList;
 
     public Team() {
 
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Integer getId() {

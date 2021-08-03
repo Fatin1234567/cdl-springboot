@@ -2,6 +2,8 @@ package fatin.kazi.cdl.schedule;
 
 import fatin.kazi.cdl.news.News;
 import fatin.kazi.cdl.team.Team;
+import fatin.kazi.cdl.team.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,29 +20,39 @@ import java.util.List;
 @RequestMapping("/Schedule")
 public class ScheduleController {
 
-    List<Schedule> scheduleList = new ArrayList<>();
-    List<Team> teams;
+
+
+    @Autowired
+    private ScheduleService scheduleService;
+    @Autowired
+    private TeamService teamService;
+
+
 
     @GetMapping("/1")
     public String showScheduleOne(Model model){
-        model.addAttribute("scheduleList",scheduleList);
+
+        List<Schedule> scheduleList = scheduleService.getDayOneSchedule();
+        if(!scheduleList.isEmpty())
+        {
+            model.addAttribute("scheduleList", scheduleList);
+        }
+
         return "scheduleDayOne";
     }
 
     @GetMapping("/addSchedule")
     public String addSchedule(Model model){
+
         model.addAttribute("schedule", new Schedule());
-        teams = Arrays.asList(
-                new Team("Optic","https://images.blz-contentstack.com/v3/assets/bltdc5337d93fbb677e/blt1f1b0a0c42f3b76d/5fac32049fbb9857903d9630/cdl_og_chi_icon_green.png"),
-                new Team("Faze","https://images.blz-contentstack.com/v3/assets/blta7b34f1f894a2422/blt6ec730c1178cc1cd/5dd596f49147457fdde604ba/ATL-FAZ_Primary-Logo.png")
-        );
+        List<Team> teams = teamService.listAllTeam();
         model.addAttribute("teams",teams);
         return "formSchedule";
     }
 
     @PostMapping("/process")
     public String processSchedule(@ModelAttribute Schedule schedule){
-        scheduleList.add(schedule);
+        scheduleService.saveSchedule(schedule);
         return "redirect:/Schedule/1";
     }
 

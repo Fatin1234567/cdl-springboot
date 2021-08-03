@@ -1,5 +1,6 @@
 package fatin.kazi.cdl.team;
 
+import fatin.kazi.cdl.player.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
+
+
     @GetMapping("/add")
     public String addTeam(Model model){
         model.addAttribute("team",new Team());
@@ -29,4 +32,11 @@ public class TeamController {
         return new ModelAndView("redirect:/");// changes the url
 
     }
+    @GetMapping("/page")
+    public String getTeamPage(Model model){
+        model.addAttribute("teams",teamService.listAllTeam());
+        return "teamPage";
+    }
+
+
 }

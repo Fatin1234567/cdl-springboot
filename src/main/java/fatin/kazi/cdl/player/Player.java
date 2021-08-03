@@ -13,7 +13,7 @@ public class Player {
     private String name;
     private Integer age;
     private String country;
-    private Float kd;
+
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -60,11 +60,5 @@ public class Player {
         this.country = country;
     }
 
-    public Float getKd() {
-        return kd;
-    }
 
-    public void setKd(Float kd) {
-        this.kd = kd;
-    }
 }

@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label >Team one</label>
+                    <label >Team two</label>
                     <select class="form-control"  th:field="*{teamTwo}">
                         <option th:each="team :${teams}" th:value="${team.teamName}" th:text="${team.teamName}"></option>
                     </select>
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label >Team one logo</label>
                     <select class="form-control"  th:field="*{teamOneImg}">
-                        <option th:each="team :${teams}" th:value="${team.logoPath}" th:text="${team.logoPath}"></option>
+                        <option th:each="team :${teams}" th:value="${team.logoPath}" th:text="${team.teamName}"></option>
                     </select>
                 </div>
 
@@ -62,7 +62,7 @@
                 <div class="form-group">
                     <label >Team two logo</label>
                     <select class="form-control"  th:field="*{teamTwoImg}">
-                        <option th:each="team :${teams}" th:value="${team.logoPath}" th:text="${team.logoPath}"></option>
+                        <option th:each="team :${teams}" th:value="${team.logoPath}" th:text="${team.teamName}"></option>
                     </select>
                 </div>
 
