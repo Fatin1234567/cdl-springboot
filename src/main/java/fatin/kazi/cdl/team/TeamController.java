@@ -2,6 +2,7 @@ package fatin.kazi.cdl.team;
 
 import fatin.kazi.cdl.player.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,14 @@ public class TeamController {
 
 
     @GetMapping("/add")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String addTeam(Model model){
         model.addAttribute("team",new Team());
         return "formTeam";
     }
 
     @PostMapping("/process")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public ModelAndView processTeam(@ModelAttribute Team team) {
         teamService.saveTeam(team);
         return new ModelAndView("redirect:/");// changes the url

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+
+>
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -22,6 +25,7 @@
 
 </head>
 <body>
+
 
 <!--        <This is the landing page >-->
 
@@ -60,6 +64,22 @@
 
             </div>
 
+        </div>
+    </div>
+
+    <div class="border border-success mt-3">
+        <p>Spring security examples</p>
+        <div class="bg-primary text-white" sec:authorize="hasRole('ROLE_ADMIN')">This part i visible for admin</div>
+        <div class="bg-warning text-white" sec:authorize="hasRole('ROLE_CLIENT')">This part i visible for employee</div>
+        <div class="bg-warning text-white" sec:authorize="isAuthenticated()">This part i visible for authenticated user</div>
+
+        <div>
+            Username <span sec:authentication="name"></span>
+        </div>
+        <div>
+            User roles: <span sec:authorize="isAuthenticated()">
+                    <span sec:authentication="principal.authorities"></span>
+                </span>
         </div>
     </div>
 

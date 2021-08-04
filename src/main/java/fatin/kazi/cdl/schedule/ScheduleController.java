@@ -4,6 +4,7 @@ import fatin.kazi.cdl.news.News;
 import fatin.kazi.cdl.team.Team;
 import fatin.kazi.cdl.team.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/addSchedule")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String addSchedule(Model model){
 
         model.addAttribute("schedule", new Schedule());
@@ -51,6 +53,7 @@ public class ScheduleController {
     }
 
     @PostMapping("/process")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String processSchedule(@ModelAttribute Schedule schedule){
         scheduleService.saveSchedule(schedule);
         return "redirect:/Schedule/1";

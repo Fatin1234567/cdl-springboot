@@ -1,6 +1,7 @@
 package fatin.kazi.cdl.news;
 
 import fatin.kazi.cdl.news.News;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,17 +24,24 @@ public class NewsController {
         return "Home";
     }
     @GetMapping("/addNews")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String addNews(Model model){
         model.addAttribute("news", new News());
         return "formNews";
     }
 
     @PostMapping("/processNews")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String processNews(@Valid @ModelAttribute News news, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()) return "formNews";
         newsList.add(news);
         return "redirect:";
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage(){
+        return "login";
     }
 
 

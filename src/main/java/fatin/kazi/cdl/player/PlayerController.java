@@ -4,6 +4,7 @@ package fatin.kazi.cdl.player;
 import fatin.kazi.cdl.team.Team;
 import fatin.kazi.cdl.team.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class PlayerController {
     private PlayerService playerService;
 
     @GetMapping("/add")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public String addPlayer(Model model){
         List<Team> teamList = teamService.listAllTeam();
         model.addAttribute("teams",teamList);
@@ -32,6 +34,7 @@ public class PlayerController {
     }
 
     @PostMapping("/process")
+    @PreAuthorize("hasAuthority('cdl:write')")
     public ModelAndView processPlayer(@ModelAttribute Player player){
         playerService.savePlayer(player);
         return new ModelAndView("redirect:/");// changes the url
