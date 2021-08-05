@@ -1,6 +1,9 @@
 package fatin.kazi.cdl.news;
 
 import fatin.kazi.cdl.news.News;
+import fatin.kazi.cdl.user.User;
+import fatin.kazi.cdl.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,9 @@ import java.util.List;
 // home page where the daily information about call duty league will be stored
 @Controller
 public class NewsController {
+
+    @Autowired
+    UserService userService;
 
     List<News> newsList = new ArrayList<>();
 
@@ -42,6 +48,18 @@ public class NewsController {
     @GetMapping("/login")
     public String getLoginPage(){
         return "login";
+    }
+
+    @GetMapping("/signup")
+    public String getSigninPage(Model model){
+        model.addAttribute("user",new User());
+        return "signup";
+    }
+
+    @PostMapping("/processSignup")
+    public String processSignup(@ModelAttribute User user){
+        userService.saveUser(user);
+        return "redirect:";
     }
 
 
