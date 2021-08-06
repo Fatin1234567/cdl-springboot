@@ -31,10 +31,19 @@
             <div class="col-lg-5">
                 <img src="../static/img/loginImg.jpg" th:src="@{/img/loginImg.jpg}" class="img-fluid" alt="">
 
+
             </div>
 
             <div class="col-lg-7 text-center py-5">
                 <h2 class="loginH">LOGIN</h2>
+
+                <div class="form-row py-3 mt-5">
+
+                    <div class="offset-1 col-lg-10" th:if="${param.error}" >
+                        <h2 class="alert alert-danger">Invalid username or password</h2>
+                    </div>
+
+                </div>
 
                 <form class="form-signin" method="post" th:action="@{/checkUserAccount}">
                     <div class="form-row py-3 mt-5">

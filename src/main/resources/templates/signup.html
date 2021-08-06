@@ -38,6 +38,15 @@
           <div class="form-row py-3 mt-5">
 
             <div class="offset-1 col-lg-10">
+             <span class="alert alert-danger" th:if="${param.loginExists}" th:text="${param.loginExists}"> dsf</span>
+            </div>
+
+          </div>
+
+
+          <div class="form-row py-3 mt-5">
+
+            <div class="offset-1 col-lg-10">
               <p>
                 <input type="text" id="username" name="username" class="form-control in" placeholder="Username" required="" th:field="*{userName}">
               </p>

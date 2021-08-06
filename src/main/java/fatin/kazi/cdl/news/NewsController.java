@@ -1,6 +1,5 @@
 package fatin.kazi.cdl.news;
 
-import fatin.kazi.cdl.news.News;
 import fatin.kazi.cdl.user.User;
 import fatin.kazi.cdl.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -22,11 +22,12 @@ public class NewsController {
     @Autowired
     UserService userService;
 
-    List<News> newsList = new ArrayList<>();
+    @Autowired
+    private NewsService newsService;
 
     @GetMapping("/")
     public String showNews(Model model){
-        model.addAttribute("newsList", newsList);
+        model.addAttribute("newsList", newsService.getNewsList());
         return "Home";
     }
     @GetMapping("/addNews")
@@ -41,26 +42,10 @@ public class NewsController {
     public String processNews(@Valid @ModelAttribute News news, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()) return "formNews";
-        newsList.add(news);
+        newsService.saveNews(news);
         return "redirect:";
     }
 
-    @GetMapping("/login")
-    public String getLoginPage(){
-        return "login";
-    }
-
-    @GetMapping("/signup")
-    public String getSigninPage(Model model){
-        model.addAttribute("user",new User());
-        return "signup";
-    }
-
-    @PostMapping("/processSignup")
-    public String processSignup(@ModelAttribute User user){
-        userService.saveUser(user);
-        return "redirect:";
-    }
 
 
 
