@@ -12,6 +12,9 @@ public class Player {
     private Integer id;
     private String name;
     private Integer age;
+    @Column( columnDefinition="TEXT")
+    private String description;
+    private String picture;
     private String country;
 
 
@@ -19,6 +22,22 @@ public class Player {
     @JoinColumn(name = "team_id")
     private Team team;
 
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public Team getTeam() {
         return team;

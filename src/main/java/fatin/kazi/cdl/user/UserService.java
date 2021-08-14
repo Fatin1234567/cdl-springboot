@@ -15,7 +15,6 @@ public class UserService {
     private UserRepository repo;
 
     public void createUserAccount(User user) {
-
         user.setPassword(PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(user.getPassword()));
         repo.save(user);
     }

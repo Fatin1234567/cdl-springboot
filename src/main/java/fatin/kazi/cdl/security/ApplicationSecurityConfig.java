@@ -31,29 +31,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/", "/login","/showOffer")
-//                .permitAll()
-//                .antMatchers("/addTour").hasAuthority(TOUR_WRITE.getPermission())
-//                .and().formLogin();
-////                .and()
-////                    .formLogin()
-////                    .loginPage("/login")
-////                    .loginProcessingUrl("/checkUserAccount")
-////                    .defaultSuccessUrl("/")
-////                    .permitAll()
-////                .and()
-////                    .logout()
-////                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-////                    .logoutSuccessUrl("/")
-////                    .invalidateHttpSession(true)
-////                    .permitAll()
-////                .and()
-////                    .exceptionHandling().accessDeniedPage("/forbidden");
-//
-//    }
 @Override
 protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()

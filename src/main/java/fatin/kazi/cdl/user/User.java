@@ -1,5 +1,7 @@
 package fatin.kazi.cdl.user;
 
+import fatin.kazi.cdl.team.Team;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,18 @@ public class User {
     private String password;
     private boolean active;
     private String role = "CLIENT";
+    @OneToOne()
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Integer getId() {
         return Id;

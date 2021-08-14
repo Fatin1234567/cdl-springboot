@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "team")
+@Table(name = "team_detail")
 public class Team {
 
     @Id
@@ -15,12 +15,23 @@ public class Team {
     private String teamName;
     private String logoPath;
     private String color;
+    @Column( columnDefinition="TEXT")
+    private String description;
+
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Player> playerList;
 
     public Team() {
 
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getColor() {

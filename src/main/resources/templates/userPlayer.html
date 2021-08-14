@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Team</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../static/css/navbar.css" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" href="../static/css/home.css" th:href="@{/css/home.css}">
+    <link rel="stylesheet" href="../static/css/userPlayer.css" th:href="@{/css/userPlayer.css}">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+</head>
+<body>
+
+<header th:replace="commoncomponent :: header"></header>
+
+
+<div   class=" a w-100 vh-100 d-flex flex-column justify-content-center
+     align-items-center" style="background-image:url('https://www.dexerto.com/wp-content/uploads/2021/07/30/slasher-la-thieves-s5-major-e1627643450134.jpg'); background-repeat: no-repeat, repeat; background-size: cover;" th:style="'background-image:url(https://www.dexerto.com/wp-content/uploads/2021/07/30/slasher-la-thieves-s5-major-e1627643450134.jpg); background-repeat: no-repeat, repeat; background-size: cover;'">
+
+
+    <div class="content text-center">
+        <h1 class="text-white context">Get to know the players</h1>
+    </div>
+
+
+
+</div>
+
+<main>
+    <div class="container ">
+        <div th:each="player : ${user.team.playerList}" class="box mt-5">
+
+            <div class="row g-0">
+
+                <div class="col-lg-3">
+                    <img src="https://images.blz-contentstack.com/v3/assets/blta7b34f1f894a2422/blta5845d70e295aa5e/5e25f597e796ce423f4a1624/1920-Chicago_Huntsmen_Scump_0002.jpg" width="400px" height="auto" th:src="${player.picture}" class="img-fluid" alt="">
+
+                </div>
+
+                <div class="col-lg-9 text p-4 ">
+                    <header class="header" th:text="${player.name}">Scump</header>
+                    <span th:text="${player.country}+' |'">America |</span>
+                    <span th:text="${player.age}+' |'">22 |</span>
+                    <header class="" th:text="${player.description}">Seth Abner (born June 30, 1995), also known as scump , is an American professional Call of Duty player for the Call of Duty League team OpTic Chicago, owned by Hector Rodriguez. Abner is a two time Major League Gaming (MLG) X Games gold medalist. In August 2017, Scump achieved his first ever Call of Duty World Championship. Abner is sponsored by several gaming hardware companies, including Turtle Beach and Scuf Gaming.[2] As of December 15, 2018, Scump has more than $600,000 from tournament winnings, of which $261,250 was won in Call of Duty: Infinite Warfare. He also runs a YouTube channel that currently has obtained over 2.6 million subscribers and over 590 million channel views as of January 24, 2021.[3] Scump has displayed unprecedented consistency in the Call of Duty competitive community, constantly ranking at or near the top since his inaugural season in 2012–2013. He is widely considered to be one of the most skilled Call of Duty players of all time. </header>
+                </div>
+            </div>
+
+        </div>
+        
+
+
+
+
+    </div>
+</main>
+
+
+</body>
+</html>

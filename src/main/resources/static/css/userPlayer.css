@@ -1,0 +1,29 @@
+
+.box{
+    background-color: white;
+
+    font-weight: 100;
+    font-size: 20px;
+    margin: 0;
+    line-height: 1,4;
+    letter-spacing: .0001em;
+    color: black;
+}
+.header{
+    font-weight: 200;
+    font-size: 30px;
+    margin: 0;
+    line-height: 1,3;
+    letter-spacing: .0001em;
+    color: black;
+}
+
+.text{
+
+    font-weight: 100;
+    font-size: 17px;
+    margin: 0;
+    line-height: 1,4;
+    letter-spacing: .0001em;
+    color: black;
+}
