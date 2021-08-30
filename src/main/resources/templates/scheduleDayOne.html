@@ -35,35 +35,35 @@
     <div class="container mt-5">
         <div th:replace="commoncomponent :: pagination"></div>
 
-       <div class="d-flex flex-column ">
-           <div th:each="schedule : ${scheduleList}" class="d-flex justify-content-between  p-3 g">
+        <div class="d-flex flex-column ">
+            <div th:each="schedule : ${scheduleList}" class="d-flex justify-content-between  p-3 g mb-2">
 
-               <div>
-                   <div>
-                       <span class="date" th:text="${#dates.dayOfWeekName(schedule.date)+', '+#dates.monthNameShort(schedule.date)+' '+#dates.format(schedule.date, 'dd')}"></span>
-                   </div>
-                   <div>
-                       <span class="date" th:text="${#dates.hour(schedule.date)+':'+#dates.minute(schedule.date)+' PM'}">8:00 PM</span>
-                   </div>
-               </div>
+                <div>
+                    <div>
+                        <span class="date" th:text="${#dates.dayOfWeekName(schedule.date)+', '+#dates.monthNameShort(schedule.date)+' '+#dates.format(schedule.date, 'dd')}"></span>
+                    </div>
+                    <div>
+                        <span class="date" th:text="${#dates.hour(schedule.date)+':'+#dates.minute(schedule.date)+' PM'}">8:00 PM</span>
+                    </div>
+                </div>
 
-               <div>
-                   <span class="mt-4 name" th:text="${schedule.teamOne}">Faze</span>
-                   <img src="https://images.blz-contentstack.com/v3/assets/blta7b34f1f894a2422/blt6ec730c1178cc1cd/5dd596f49147457fdde604ba/ATL-FAZ_Primary-Logo.png" th:src="${schedule.teamOneImg}"  width="200px" height="115px" alt="...">
+                <div>
+                    <span class="mt-4 name" th:text="${schedule.teamOne.teamName}">Faze</span>
+                    <img src="https://images.blz-contentstack.com/v3/assets/blta7b34f1f894a2422/blt6ec730c1178cc1cd/5dd596f49147457fdde604ba/ATL-FAZ_Primary-Logo.png" th:src="${schedule.teamOne.logoPath}"  width="200px" height="115px" alt="...">
 
-               </div>
-               <div class="mt-4 name"><span>VS</span></div>
+                </div>
+                <div class="mt-4 name"><span>VS</span></div>
 
-               <div>
-                   <span class="mt-4 name" th:text="${schedule.teamTwo}">Faze</span>
-                   <img src="https://images.blz-contentstack.com/v3/assets/bltdc5337d93fbb677e/blt1f1b0a0c42f3b76d/5fac32049fbb9857903d9630/cdl_og_chi_icon_green.png" th:src="${schedule.teamTwoImg}" width="200px" height="115px" alt="...">
+                <div>
+                    <span class="mt-4 name" th:text="${schedule.teamTwo.teamName}">Faze</span>
+                    <img src="https://images.blz-contentstack.com/v3/assets/bltdc5337d93fbb677e/blt1f1b0a0c42f3b76d/5fac32049fbb9857903d9630/cdl_og_chi_icon_green.png" th:src="${schedule.teamTwo.logoPath}" width="200px" height="115px" alt="...">
 
-               </div>
+                </div>
 
-           </div>
+            </div>
+        </div>
+    </div>
 
-
-       </div>
 
 
 

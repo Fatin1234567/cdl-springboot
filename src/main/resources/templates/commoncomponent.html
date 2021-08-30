@@ -57,6 +57,18 @@
 
     </nav>
 
+    <script>
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll',function(){
+            if(window.pageYOffset > 750){
+                nav.classList.add('bg-dark','shadow')
+            }else{
+                nav.classList.remove('bg-dark','shadow')
+            }
+        })
+    </script>
+
 </header>
 
 <div  th:fragment="headerSchedule" class=" a w-100 vh-100 d-flex flex-column justify-content-center
@@ -78,13 +90,13 @@
 
         <nav >
             <ul class="pagination pagination-sm justify-content-center" >
-                <li class="page-item"><a href="" class="page-link">Previous</a></li>
-                <li class="page-item"><a href="" class="page-link">Day One - Thur</a></li>
-                <li class="page-item"><a href="" class="page-link">Day Two - Fri</a></li>
-                <li class="page-item"><a href="" class="page-link">Day Three - Sat</a></li>
-                <li class="page-item"><a href="" class="page-link">Day Four - Sun</a></li>
 
-                <li class="page-item" ><a href="" class="page-link">Next</a></li>
+                <li class="page-item"><a href="" th:href="@{/Schedule/1}" class="page-link">Day One - Thur</a></li>
+                <li class="page-item"><a href="" th:href="@{/Schedule/2}" class="page-link">Day Two - Fri</a></li>
+                <li class="page-item"><a href="" th:href="@{/Schedule/3}" class="page-link">Day Three - Sat</a></li>
+                <li class="page-item"><a href="" th:href="@{/Schedule/4}" class="page-link">Day Four - Sun</a></li>
+
+
 
 
             </ul>

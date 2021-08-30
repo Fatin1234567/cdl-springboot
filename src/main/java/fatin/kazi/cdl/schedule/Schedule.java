@@ -1,5 +1,6 @@
 package fatin.kazi.cdl.schedule;
 
+import fatin.kazi.cdl.team.Team;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,12 +13,15 @@ public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String teamOne;
-    private String teamTwo;
+    @OneToOne()
+    @JoinColumn(name = "team1_id")
+    private Team teamOne;
+    @OneToOne()
+    @JoinColumn(name = "team2_id")
+    private Team teamTwo;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private  Date date;
-    private String teamOneImg;
-    private String teamTwoImg;
+
 
 
 
@@ -30,35 +34,20 @@ public class Schedule {
         this.id = id;
     }
 
-    public String getTeamOneImg() {
-        return teamOneImg;
-    }
 
-    public void setTeamOneImg(String teamOneImg) {
-        this.teamOneImg = teamOneImg;
-    }
-
-    public String getTeamTwoImg() {
-        return teamTwoImg;
-    }
-
-    public void setTeamTwoImg(String teamTwoImg) {
-        this.teamTwoImg = teamTwoImg;
-    }
-
-    public String getTeamOne() {
+    public Team getTeamOne() {
         return teamOne;
     }
 
-    public void setTeamOne(String teamOne) {
+    public void setTeamOne(Team teamOne) {
         this.teamOne = teamOne;
     }
 
-    public String getTeamTwo() {
+    public Team getTeamTwo() {
         return teamTwo;
     }
 
-    public void setTeamTwo(String teamTwo) {
+    public void setTeamTwo(Team teamTwo) {
         this.teamTwo = teamTwo;
     }
 

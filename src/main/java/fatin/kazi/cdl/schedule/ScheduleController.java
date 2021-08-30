@@ -42,6 +42,40 @@ public class ScheduleController {
         return "scheduleDayOne";
     }
 
+    @GetMapping("/2")
+    public String showScheduleTwo(Model model){
+
+        List<Schedule> scheduleList = scheduleService.getDayTwoSchedule();
+        if(!scheduleList.isEmpty())
+        {
+            model.addAttribute("scheduleList", scheduleList);
+        }
+
+        return "scheduleDayTwo";
+    }
+    @GetMapping("/3")
+    public String showScheduleThree(Model model){
+
+        List<Schedule> scheduleList = scheduleService.getDayThreeSchedule();
+        if(!scheduleList.isEmpty())
+        {
+            model.addAttribute("scheduleList", scheduleList);
+        }
+
+        return "scheduleDayThree";
+    }
+    @GetMapping("/4")
+    public String showScheduleFour(Model model){
+
+        List<Schedule> scheduleList = scheduleService.getDayFourSchedule();
+        if(!scheduleList.isEmpty())
+        {
+            model.addAttribute("scheduleList", scheduleList);
+        }
+
+        return "scheduleDayFour";
+    }
+
     @GetMapping("/addSchedule")
     @PreAuthorize("hasAuthority('cdl:write')")
     public String addSchedule(Model model){
@@ -61,17 +95,6 @@ public class ScheduleController {
 
 
 
-    @GetMapping("/2")
-    public String showScheduleTwo(){
-        return "scheduleDayOne";
-    }
-    @GetMapping("/3")
-    public String showScheduleThree(){
-        return "scheduleDayOne";
-    }
-    @GetMapping("/4")
-    public String showScheduleFour(){
-        return "scheduleDayOne";
-    }
+
 
 }

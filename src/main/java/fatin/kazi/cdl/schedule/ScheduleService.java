@@ -25,4 +25,13 @@ public class ScheduleService {
     public List<Schedule> getDayOneSchedule(){
         return repo.scheduleForDayOne();
     }
+    public List<Schedule> getDayTwoSchedule(){
+        return repo.scheduleForDayTwo();
+    }
+    public List<Schedule> getDayThreeSchedule(){
+        return repo.scheduleForDayThree();
+    }
+    public List<Schedule> getDayFourSchedule(){
+        return repo.scheduleForDayFour();
+    }
 }
