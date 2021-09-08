@@ -45,10 +45,12 @@
 
 
 
+
+
     <div class="container m-5" th:if="${!newsList.isEmpty()}">
-        <div class="row " data-masonry='{"percentPosition": true }'>
-            <div class="col-12 col-md-6 col-lg-3" th:each="news: ${newsList}">
-                <div class="card"  >
+        <div class="row   " data-masonry='{"percentPosition": true }'>
+            <div class="col-12 col-md-6 col-lg-3 mb-2" th:each="news: ${newsList}">
+                <div class="card h-150"  >
                     <section th:if="${!news.imgPath.isEmpty()}"  >
                         <img  class="card-img-top img-fluid"  src="https://www.dexerto.com/wp-content/uploads/2020/10/100-thieves-cdl.jpg" th:src="@{{image}(image=${news.imgPath})}">
                     </section>
@@ -63,42 +65,33 @@
 
             </div>
 
+
         </div>
     </div>
 
-    <div class="border border-success mt-3">
-        <p>Spring security examples</p>
-        <div class="bg-primary text-white" sec:authorize="hasRole('ROLE_ADMIN')">This part i visible for admin</div>
-        <div class="bg-warning text-white" sec:authorize="hasRole('ROLE_CLIENT')">This part i visible for employee</div>
-        <div class="bg-warning text-white" sec:authorize="isAuthenticated()">This part i visible for authenticated user</div>
+<!--    <div class="border border-success mt-3">-->
+<!--        <p>Spring security examples</p>-->
+<!--        <div class="bg-primary text-white" sec:authorize="hasRole('ROLE_ADMIN')">This part i visible for admin</div>-->
+<!--        <div class="bg-warning text-white" sec:authorize="hasRole('ROLE_CLIENT')">This part i visible for employee</div>-->
+<!--        <div class="bg-warning text-white" sec:authorize="isAuthenticated()">This part i visible for authenticated user</div>-->
 
-        <div>
-            Username <span sec:authentication="name"></span>
-        </div>
-        <div>
-            User roles: <span sec:authorize="isAuthenticated()">
-                    <span sec:authentication="principal.authorities"></span>
-                </span>
-        </div>
-    </div>
-
-
+<!--        <div>-->
+<!--            Username <span sec:authentication="name"></span>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            User roles: <span sec:authorize="isAuthenticated()">-->
+<!--                    <span sec:authentication="principal.authorities"></span>-->
+<!--                </span>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
 
 
 
-<!--    <script>-->
-<!--        var nav = document.querySelector('nav');-->
 
-<!--        window.addEventListener('scroll',function(){-->
-<!--            if(window.pageYOffset > 750){-->
-<!--                nav.classList.add('bg-dark','shadow')-->
-<!--            }else{-->
-<!--                nav.classList.remove('bg-dark','shadow')-->
-<!--            }-->
-<!--        })-->
-<!--    </script>-->
+
+<
 </main>
 
 </body>
