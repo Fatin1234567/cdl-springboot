@@ -18,11 +18,6 @@ class ScheduleRepositoryTest {
 
     @Test
     void scheduleForDayOne() {
-
-
-
-
-
       assertThat(false).isFalse();
 
     }
